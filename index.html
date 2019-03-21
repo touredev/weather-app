@@ -1,26 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+   
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Weather</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    
+
 </head>
 <body>
-    <div class="location">
-        <h1 class="location-timezone">Timezone</h1>
-        <canvas class="icon" width="128" height="128"></canvas>
+    <div class="wrapper">
+        <div class="location">
+            <h1 class="location-timezone"></h1>
+            <canvas class="icon" width="128" height="128"></canvas>
+        </div>
+        <div class="temperature">
+            <div class="degre-section">
+                <h2 class="temperature-degree"></h2>
+                <span>°C</span>
+            </div>
+            <div class="temperature-description"></div>
+        </div>
+
+        
     </div>
-    <div class="temperature">
-        <div class="degre-section">
-            <h2 class="temperature-degree">36</h2>
-            <span>°C</span>
-        </div>
-            <div class="temperature-description">It's hot</div>
-        </div>
-    <script src="skycons.js"></script>
+
+    <div id="map-parent" style="height: 425px;">
+        <div id="googleMap"></div>
+    </div>
+   
+        <script>
+            var map;
+
+            function initMap() {
+                 document.getElementById('googleMap').style.height = document.getElementById('map-parent').clientHeight +
+                 'px';
+
+                map = new google.maps.Map(document.getElementById('googleMap'), {
+                    center: {
+                        lat: 5.3484461,
+                        lng: -4.0498767
+                    },
+                    zoom: 6
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS5XS3JvU-y743FN5KAXF5pFcO5ZOASE8&callback=initMap" async defer></script>
+    
+ <script src="skycons.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

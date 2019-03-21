@@ -1,3 +1,7 @@
+:root {
+    --sky-main-color: rgb(47, 150, 163);
+    --sky-second-color: rgb(48, 62, 143)
+}
 *{
     margin: 0;
     padding: 0;
@@ -6,13 +10,17 @@
 
 body {
     height: 100vh;
+    background: linear-gradient(var(--sky-main-color), var(--sky-second-color));
+    font-family: sans-serif;
+    color: white
+}
+
+.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: linear-gradient(rgb(47,150,163), rgb(48,62,143));
-    font-family: sans-serif;
-    color: white
+     min-height: 50%;
 }
 
 .location, .temperature {
@@ -38,4 +46,9 @@ body {
 }
 .degre-section h2 {
     font-size: 40px
+}
+
+#googleMap {
+    height: 500px;
+    max-width: 100%;
 }
